@@ -9,14 +9,27 @@ public class Beskeder {
     @Id
     private int id;
     @NotBlank (message ="Indtast venligst en besked")
-    private String besked;
+    private String tekst;
+    private String persons_navn;
+
+
+    public String getPersons_navn() {
+        return persons_navn;
+    }
+
+    public void setPersons_navn(String persons_navn) {
+        this.persons_navn = persons_navn;
+    }
+
+
 
     public Beskeder() {
     }
 
-    public Beskeder(int id, String besked) {
+    public Beskeder(int id, String tekst, String persons_navn) {
         this.id = id;
-        this.besked = besked;
+        this.tekst = tekst;
+        this.persons_navn = persons_navn;
     }
 
     public int getId() {
@@ -27,11 +40,11 @@ public class Beskeder {
         this.id = id;
     }
 
-    public String getBesked() {
-        return besked;
+    public String getTekst() {
+        return tekst;
     }
 
-    public void setBesked(String besked) {
-        this.besked = besked;
+    public void setTekst(String tekst) {
+        this.tekst = tekst;
     }
 }

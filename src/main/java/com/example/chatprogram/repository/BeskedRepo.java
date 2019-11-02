@@ -14,17 +14,17 @@ public class BeskedRepo {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
-    
-    public List<Beskeder> hentAlleBeskeder()
+
+    public List<Beskeder> hentAlleChats()
     {
-        String sql = "SELECT * FROM beskeder";
+        String sql = "SELECT * FROM chat";
         RowMapper<Beskeder> rowMapper = new BeanPropertyRowMapper<>(Beskeder.class);
         return jdbcTemplate.query(sql, rowMapper);
     }
 
     public void tilfoejBesked(Beskeder besked){
-        String sql = "INSERT INTO beskeder (id, besked) VALUES (?,?)";
-        jdbcTemplate.update(sql, besked.getId(), besked.getBesked());
+        String sql = "INSERT INTO chat (id, tekst, persons_navn) VALUES (?,?,?)";
+        jdbcTemplate.update(sql, besked.getId(), besked.getTekst(), besked.getPersons_navn());
     }
 
     /*

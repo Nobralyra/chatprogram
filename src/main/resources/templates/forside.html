@@ -18,11 +18,11 @@
 
     <h2>Alle beskeder</h2>
 
-    <a href="/nyBesked">Ny besked</a>
-    <div>
-        th:each = "besked : ${beskeder}"
+   <a href="/nyBesked">Ny besked</a>
+    <div th:each = "besked : ${beskeder}">
         <span th:text ="${besked.id}"></span>
-        <span th:text ="${besked.besked}"></span>
+        <span th:text ="${besked.tekst}"></span>
+        <span th:text ="${besked.persons_navn}"></span>
     </div>
 </div>
 

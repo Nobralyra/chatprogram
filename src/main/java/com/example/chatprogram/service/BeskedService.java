@@ -18,8 +18,8 @@ public class BeskedService {
 
     }
 
-    public List<Beskeder> hentAlleBeskeder()
+    public List<Beskeder> hentAlleChats()
     {
-        return beskedRepo.hentAlleBeskeder();
+        return beskedRepo.hentAlleChats();
     }
 }
