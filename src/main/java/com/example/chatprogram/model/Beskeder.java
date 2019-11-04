@@ -6,26 +6,29 @@ import javax.validation.constraints.NotBlank;
 @Entity
 public class Beskeder {
 
+    /**
+     * Hvilke atributer/fields som bruges
+     * Skal vidst nok hedde præcis det samme som hvad kolonnerne i tabellen hedder.
+     *
+     */
     @Id
     private int id;
-    @NotBlank (message ="Indtast venligst en besked")
+    @NotBlank (message ="Indtast venligst en besked") //overruler vidst nok den fejlbesked der er skrevet i html??
     private String tekst;
     private String persons_navn;
 
-
-    public String getPersons_navn() {
-        return persons_navn;
-    }
-
-    public void setPersons_navn(String persons_navn) {
-        this.persons_navn = persons_navn;
-    }
-
-
-
+    /**
+     * Default constructer
+     */
     public Beskeder() {
     }
 
+    /**
+     * Overloadet constructer med parameter
+     * @param id
+     * @param tekst
+     * @param persons_navn
+     */
     public Beskeder(int id, String tekst, String persons_navn) {
         this.id = id;
         this.tekst = tekst;
@@ -46,5 +49,13 @@ public class Beskeder {
 
     public void setTekst(String tekst) {
         this.tekst = tekst;
+    }
+
+    public String getPersons_navn() {
+        return persons_navn;
+    }
+
+    public void setPersons_navn(String persons_navn) {
+        this.persons_navn = persons_navn;
     }
 }

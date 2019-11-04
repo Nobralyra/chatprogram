@@ -15,6 +15,15 @@ public class BeskedRepo {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    /**
+     * Ved hjælp af SQL statementet kan alle chats, der er på databasen, blive hentet ind i java programmet.
+     * Det gøres ved hjælp af RowMapper og JdbcTemplate.
+     *
+     * https://www.javatpoint.com/RowMapper-example
+     * https://dzone.com/articles/spring-jdbc-rowmapper-vs-resultsetextractor
+     *
+     * @return jdbcTemplate.query(sql, rowMapper)
+     */
     public List<Beskeder> hentAlleChats()
     {
         String sql = "SELECT * FROM chat";
@@ -22,13 +31,24 @@ public class BeskedRepo {
         return jdbcTemplate.query(sql, rowMapper);
     }
 
-    public void tilfoejBesked(Beskeder besked){
+    /**
+     * Ved hjælp af SQL statementet kan der blive tiljøjet en besked til databasen.
+     * Der er brugt void, da der ikke ønskes et return.
+     *
+     * Det gøres ved hjælp af JdbcTemplate update, som bruger sql statementet og getmetoder.
+     *
+     * @param beskeder
+     */
+    public void tilfoejBesked(Beskeder beskeder){
         String sql = "INSERT INTO chat (id, tekst, persons_navn) VALUES (?,?,?)";
-        jdbcTemplate.update(sql, besked.getId(), besked.getTekst(), besked.getPersons_navn());
+        jdbcTemplate.update(sql, beskeder.getId(), beskeder.getTekst(), beskeder.getPersons_navn());
     }
 
+    /**
+     * Ikke brugt metode
+     */
     /*
-    //skulle også returnere boolean for bekræftelse
+    skulle også returnere boolean for bekræftelse
     public void sletBesked(int id){
         String sql = "DELETE FROM beskeder WHERE id=?";
         jdbcTemplate.update(sql, id);

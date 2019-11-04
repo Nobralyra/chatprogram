@@ -14,29 +14,36 @@ import javax.validation.Valid;
 @Controller
 public class HomeController {
 
+    //https://www.tutorialspoint.com/spring/spring_autowired_annotation.htm
+    //@Autowired on Properties to get rid of the setter methods (not always a good idea)
     @Autowired
     BeskedService beskedService;
 
+    /**
+     * Metoderne i HomeContolleren skal retunere de værdier der kommer fra brugeren til BeskedService.
+     * Værdierne kommer fra de forskellige undersider og indtastet beskeder og navn.
+     *
+     * @param beskeder
+     * @param model
+     * @return
+     */
     @GetMapping("/")
     public String visForside(Beskeder beskeder, Model model)
     {
-        model.addAttribute("beskeder", beskedService.hentAlleChats());
-        return "/forside";
+        return beskedService.visForside(beskeder, model);
     }
 
     @GetMapping("/nyBesked")
     public String visnyBesked(Beskeder beskeder, Model model)
     {
-        model.addAttribute("beskeder", beskeder);
-        return "/nyBesked";
+        return beskedService.visnyBesked(beskeder, model);
     }
 
     @PostMapping("/sendBesked")
-    public String validere(@Valid Beskeder beskeder, BindingResult bindingResult, Model model)
+    public String tilfoejBesked(@Valid Beskeder beskeder, BindingResult bindingResult, Model model)
     {
 
-
-        return "redirect:/";
+        return beskedService.tilfoejBesked(beskeder, bindingResult, model);
     }
 
 
