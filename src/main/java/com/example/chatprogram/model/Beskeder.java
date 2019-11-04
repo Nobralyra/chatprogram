@@ -13,8 +13,9 @@ public class Beskeder {
      */
     @Id
     private int id;
-    @NotBlank (message ="Indtast venligst en besked") //overruler vidst nok den fejlbesked der er skrevet i html??
+    @NotBlank (message ="Indtast venligst en besked") //overruler den fejlbesked der er skrevet i html (hvis kun der er validering på databasesiden??)
     private String tekst;
+    @NotBlank
     private String persons_navn;
 
     /**

@@ -21,15 +21,15 @@
 
     <div class="form-group">
 
-        <input type="text" th:field="*{persons_navn}" name="tekst" class="form-control" placeholder="Indtast dit navn">
-        <span th:if="${#fields.hasErrors('tekst')}" th:errors="*{persons_navn}">Indtast en besked</span>
+        <input type="text" th:field="*{persons_navn}" name="persons_navn" class="form-control" placeholder="Indtast dit navn">
+        <span th:if="${#fields.hasErrors('persons_navn')}" th:errors="*{persons_navn}"></span>
 
     </div>
 
     <div class="form-group">
 
         <input type="tekst" th:field="*{tekst}" name="tekst" class="form-control" placeholder="Indtast din besked">
-        <span th:if="${#fields.hasErrors('tekst')}" th:errors="*{tekst}">Indtast venligst din besked</span>
+        <span th:if="${#fields.hasErrors('tekst')}" th:errors="*{tekst}"></span>
 
     </div>
 

@@ -19,6 +19,8 @@ public class BeskedRepo {
      * Ved hjælp af SQL statementet kan alle chats, der er på databasen, blive hentet ind i java programmet.
      * Det gøres ved hjælp af RowMapper og JdbcTemplate.
      *
+     * RowMapper interface to fetch the records from the database using query() method of JdbcTemplate class
+     *
      * https://www.javatpoint.com/RowMapper-example
      * https://dzone.com/articles/spring-jdbc-rowmapper-vs-resultsetextractor
      *

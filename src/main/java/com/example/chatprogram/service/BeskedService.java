@@ -25,6 +25,10 @@ public class BeskedService {
     public String visForside(Beskeder beskeder, Model model)
     {
         List<Beskeder> hentAlleChats = beskedRepo.hentAlleChats();
+        //Hvad model.addAtribute er :
+        // https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/ui/Model.html
+        // https://www.javatpoint.com/spring-mvc-model-interface
+        // https://www.thymeleaf.org/doc/articles/springmvcaccessdata.html
         model.addAttribute("beskeder", hentAlleChats);
         return "/forside";
     }

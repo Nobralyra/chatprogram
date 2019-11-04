@@ -20,6 +20,13 @@
     <h2>Alle beskeder</h2>
 
    <a href="/nyBesked">Ny besked</a>
+    <!-- Hvad th:each er og gør:
+    th:each can be reading like "for each besked in beskeder".
+    The besked is being iterated upon is held by the besked variable.
+     https://books.google.dk/books?id=OrZTDwAAQBAJ&pg=PA442&lpg=PA442&dq=th:each+%3D+%22+:+$%7B%7D%22&source=bl&ots=zPK0ZJsaiX&sig=ACfU3U2NwBeDImPK_s-oFTLJ3hrCB6_pRw&hl=en&sa=X&ved=2ahUKEwj7ktD3rdHlAhVP-yoKHYYHDgQQ6AEwD3oECAkQAQ#v=onepage&q=th%3Aeach%20%3D%20%22%20%3A%20%24%7B%7D%22&f=false
+     https://o7planning.org/en/12359/thymeleaf-loops-tutorial
+     https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#using-theach-->
+
     <div th:each = "besked : ${beskeder}">
         <span th:text ="${besked.tekst}"></span>
         <span th:text ="${besked.persons_navn}"></span>

@@ -42,7 +42,6 @@ public class HomeController {
     @PostMapping("/sendBesked")
     public String tilfoejBesked(@Valid Beskeder beskeder, BindingResult bindingResult, Model model)
     {
-
         return beskedService.tilfoejBesked(beskeder, bindingResult, model);
     }
 
