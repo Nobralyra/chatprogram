@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class HomeController {
@@ -30,7 +31,10 @@ public class HomeController {
     @GetMapping("/")
     public String visForside(Beskeder beskeder, Model model)
     {
-        return beskedService.visForside(beskeder, model);
+        List<Beskeder> result = beskedService.visForside(beskeder);
+
+        model.addAttribute("beskeder", result);
+        return "/forside";
     }
 
     @GetMapping("/nyBesked")
