@@ -37,12 +37,15 @@ public class BeskedService {
         return hentAlleChats;
     }
 
-    public String visnyBesked(Beskeder beskeder, Model model)
+    /*
+    //public String visnyBesked(Beskeder beskeder, Model model)
+    public List<Beskeder> visnyBesked(Beskeder beskeder)
     {
-        model.addAttribute("beskeder", beskeder);
-        return "/nyBesked";
+        List<Beskeder> visNyBesked = visForside();
+        return visnyBesked;
+        //return "/nyBesked";
     }
-
+*/
     public String tilfoejBesked(@Valid Beskeder beskeder, BindingResult bindingResult, Model model)
     {
         if (bindingResult.hasErrors()) {
