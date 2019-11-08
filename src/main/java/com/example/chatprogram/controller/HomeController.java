@@ -40,7 +40,9 @@ public class HomeController {
     @GetMapping("/nyBesked")
     public String visnyBesked(Beskeder beskeder, Model model)
     {
-        return beskedService.visnyBesked(beskeder, model);
+        model.addAttribute("beskeder", beskeder);
+        return "/nyBesked";
+        //beskedService.visnyBesked(beskeder, model);
     }
 
     @PostMapping("/sendBesked")
